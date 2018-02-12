@@ -3,7 +3,7 @@ from flask import Flask,jsonify
 from flask_cors import CORS
 from datetime import datetime
 import random
-import json
+import requests
 
 app = Flask(__name__)
 CORS(app)
@@ -3516,6 +3516,11 @@ uds_response_starting = {
   'finishDate' : datetimeNow
 }
 
+red = 'RED'
+
+yellow = 'YELLOW'
+
+green = 'GREEN'
 
 memory1_response = {
   'metadata' : {
@@ -6941,6 +6946,16 @@ def get_consumption():
   if number == 3:
     return jsonify(consumption3_response)
 
+@app.route('/app/teamcity/builds/buildType:(id:uds),branch:develop', methods=['GET'])
+def get_developstatus():
+  number = random.randint(1, 3)
+  print number
+  if number == 1:
+    return red
+  if number == 2:
+    return yellow
+  if number == 3:
+    return green
 
 
 if __name__ == '__main__':
