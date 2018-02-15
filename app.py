@@ -3522,6 +3522,11 @@ yellow = 'YELLOW'
 
 green = 'GREEN'
 
+fiftyfive = '55'
+seventy = '70'
+ninety = '90'
+thirty = '30'
+
 memory1_response = {
   'metadata' : {
     'data' : [ {
@@ -6956,6 +6961,32 @@ def get_developstatus():
     return yellow
   if number == 3:
     return green
+
+@app.route('/app/teamcity/builds/buildType:(id:cpumotor),branch:develop', methods=['GET'])
+def get_cpumotor():
+  number = random.randint(1, 4)
+  print number
+  if number == 1:
+    return fiftyfive
+  if number == 2:
+    return thirty
+  if number == 3:
+    return seventy
+  if number == 4:
+    return ninety
+
+@app.route('/app/teamcity/builds/buildType:(id:memorymotor),branch:develop', methods=['GET'])
+def get_memorymotor():
+  number = random.randint(1, 4)
+  print number
+  if number == 1:
+    return fiftyfive
+  if number == 2:
+    return thirty
+  if number == 3:
+    return seventy
+  if number == 4:
+    return ninety
 
 
 if __name__ == '__main__':
