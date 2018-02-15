@@ -6962,6 +6962,17 @@ def get_developstatus():
   if number == 3:
     return green
 
+@app.route('/app/teamcity/builds/buildType:(id:uds),branch:uat', methods=['GET'])
+def get_uatstatus():
+  number = random.randint(1, 3)
+  print number
+  if number == 1:
+    return red
+  if number == 2:
+    return yellow
+  if number == 3:
+    return green
+
 @app.route('/app/teamcity/builds/buildType:(id:cpumotor),branch:develop', methods=['GET'])
 def get_cpumotor():
   number = random.randint(1, 4)
